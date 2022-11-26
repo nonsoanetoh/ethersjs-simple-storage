@@ -1,17 +1,17 @@
-const { ethers } = require("ethers");
-const fs = require("fs-extra");
+import { ethers } from "ethers";
+import * as fs from "fs-extra";
 
-require("dotenv").config();
+import "dotenv/config";
 
 const main = async () => {
   // REMOTE PROCEDURE CALL - BASICALLY THE LOCATION
   // http://127.0.0.1:7545
 
   // CREATE NEW PROVIDER (GANACHE FAKE LOCAL BLOCKCHAIN)
-  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL!);
 
   // CREATE NEW WALLET USING A PRIVATE KEY AND THE PROVIDER
-  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
 
   // READ THE ABI AND BINARY FOR THE CONTRACT
   const abi = fs.readFileSync(
