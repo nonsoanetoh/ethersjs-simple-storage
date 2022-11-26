@@ -11,7 +11,6 @@
   },
   "scripts": {
     "compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o ./output SimpleStorage.sol",
-    "deploy": "node deploy.ts",
-    "ts-deploy": "ts-node deploy.ts"
+    "deploy": "ts-node deploy.ts"
   }
 }
